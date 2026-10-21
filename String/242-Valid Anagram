@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+        char[] a=s.toCharArray();
+        List<Character> l=new ArrayList();
+        
+        for(char c:t.toCharArray()){
+            l.add(c);
+        }  
+        for(char b:a){
+           if(l.contains(b)){
+            l.remove(Character.valueOf(b));
+           }
+           else{
+            return false;
+           } 
+        }
+        return l.isEmpty();
+          }
+}
+
+//another approach 
+char[] a=s.toCharArray();
+char[] b=t.toCharArray();
+Arrays.sort(a);
+Arrays.sort(b);
+return Arrays.equals(a,b);
